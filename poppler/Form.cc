@@ -1155,7 +1155,7 @@ FormFieldChoice::FormFieldChoice(PDFDoc *docA, Object *aobj, const Ref &ref, For
 
             for (int i = 0; i < numChoices; i++) {
                 if (choices[i].exportVal) {
-                    if (choices[i].exportVal->cmp(obj1.getString()) == 0) {
+                    if (cmp(choices[i].exportVal, obj1.getString()) == 0) {
                         optionFound = gTrue;
                     }
                 } else if (choices[i].optionName) {
