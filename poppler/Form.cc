@@ -1469,7 +1469,7 @@ FormFieldChoice::FormFieldChoice(PDFDoc *docA, Object *aobj, const Ref& ref, For
           GBool matches = gFalse;
 
           if (choices[i].exportVal) {
-            if (choices[i].exportVal->cmp(obj2.getString()) == 0) {
+            if (cmp(choices[i].exportVal, obj2.getString()) == 0) {
               matches = gTrue;
             }
           } else if (choices[i].optionName) {
