@@ -15,6 +15,7 @@
 //========================================================================
 
 #include "config.h"
+#include <libgen.h>
 #include <poppler-config.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -104,7 +105,7 @@ static void dumpSignature(int sig_num, int sigCount, FormWidgetSignature *sig_wi
     // since { is the magic character to replace things we need to put it twice where
     // we don't want it to be replaced
     GooString *format = GooString::format("{{0:s}}.sig{{1:{0:d}d}}", sigCountLength);
-    GooString *path = GooString::format(format->getCString(), basename(filename), sig_num);
+    GooString *path = GooString::format(format->getCString(), basename((char *)filename), sig_num);
     printf("Signature #%d (%u bytes) => %s\n", sig_num, signature->getLength(), path->getCString());
     std::ofstream outfile(path->getCString(), std::ofstream::binary);
     outfile.write(signature->getCString(), signature->getLength());
