@@ -1447,7 +1447,7 @@ FormFieldChoice::FormFieldChoice(PDFDoc *docA, Object *aobj, const Ref& ref, For
             optionFound = gTrue;
           }
         } else if (choices[i].optionName) {
-          if (choices[i].optionName->cmp(obj1.getString()) == 0) {
+          if (cmp(choices[i].optionName, obj1.getString()) == 0) {
             optionFound = gTrue;
           }
         }
@@ -1473,7 +1473,7 @@ FormFieldChoice::FormFieldChoice(PDFDoc *docA, Object *aobj, const Ref& ref, For
               matches = gTrue;
             }
           } else if (choices[i].optionName) {
-            if (choices[i].optionName->cmp(obj2.getString()) == 0) {
+            if (cmp(choices[i].optionName, obj2.getString()) == 0) {
               matches = gTrue;
             }
           }
