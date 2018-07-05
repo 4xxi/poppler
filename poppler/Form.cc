@@ -101,7 +101,7 @@ static int check_bom(const char *data, size_t size) {
     return -1;
 }
 
-static GooString *convertToUTF16v2(GooString *data) {
+static GooString *convertToUTF16v2(const GooString *data) {
     if (data == nullptr) {
         return nullptr;
     }
@@ -115,7 +115,7 @@ static GooString *convertToUTF16v2(GooString *data) {
     return data->copy();
 }
 
-static int cmp(GooString *str1, GooString *str2) {
+static int cmp(const GooString *str1, const GooString *str2) {
     GooString *str1UTF16 = convertToUTF16v2(str1);
     GooString *str2UTF16 = convertToUTF16v2(str2);
     int res = str1UTF16->cmp(str2UTF16);
